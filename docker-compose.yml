@@ -1,0 +1,7 @@
+ttt:
+  build: .
+  ports:
+    - '4200:4200'
+  volumes:
+    - .:/home/app/ttt
+    - /home/app/ttt/node_modules
