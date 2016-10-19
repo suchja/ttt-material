@@ -2,19 +2,6 @@ md-card {
   margin: 20px;
 }
 
-div {
-    height: 100px;
-    width: 100px;
-    background-color: #555;
-}
-table {
-    border-collapse: collapse;
-    margin: auto;
-    padding: 0;
-}
-tr {
-    padding: 0;
-}
-td {
-    padding: 2px;
+md-card p {
+  margin: 5px;
 }
