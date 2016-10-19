@@ -5,11 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })
-export class BoardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+export class BoardComponent{
+  private player: string = "x";
+  constructor() {
+    let that = this;
+    setTimeout(function() {
+      that.player = "o";
+    }, 2000);
   }
-
 }
