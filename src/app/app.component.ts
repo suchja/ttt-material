@@ -1,4 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
+import { MdDialog, MdDialogConfig } from "@angular/material";
+
+@Component({
+  selector: 'settings-dialog',
+  template: `
+    <label>Would you like dog pics every min???</label>
+  `
+})
+export class SettingsDialog {
+
+}
 
 @Component({
   selector: 'app-root',
@@ -7,4 +18,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  constructor(public dialog: MdDialog, public vcr: ViewContainerRef) {}
+
+  openDialog() {
+    const config = new MdDialogConfig();
+    config.viewContainerRef = this.vcr;
+    this.dialog.open(SettingsDialog, config);
+  }
 }
