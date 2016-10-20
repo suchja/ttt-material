@@ -4,7 +4,7 @@ import { MdDialog, MdDialogConfig } from "@angular/material";
 @Component({
   selector: 'settings-dialog',
   template: `
-    <label>Would you like dog pics every min???</label>
+    <label>Settings currently not available!</label>
   `
 })
 export class SettingsDialog {
