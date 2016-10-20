@@ -1,5 +1,12 @@
 <md-card>
   Current player: {{player}}
+  <template [ngIf]="isWon()">
+    Won!
+  </template>
+  <br>
+  <template [ngIf]="isDraw()">
+    Draw!
+  </template>
 </md-card>
 <md-card>
      <tr *ngFor="let row of board; let i = index">
