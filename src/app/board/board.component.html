@@ -2,19 +2,27 @@
   Current player: {{player}}
 </md-card>
 <md-card>
+     <tr *ngFor="let row of board; let i = index">
+        <td *ngFor="let col of row; let j = index" (click)=setToken(i,j)>
+            <!-- {{col}} -->
+            <app-square [token]=col></app-square>
+        </td>
+    </tr>
+</md-card>
+<md-card>
   <p>
-    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">1</button>
-    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">2</button>
-    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">3</button>
+    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">{{ player }}</button>
+    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">{{ player }}</button>
+    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">{{ player }}</button>
   </p>
   <p>
-    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">4</button>
-    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">5</button>
-    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">6</button>
+    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">{{ player }}</button>
+    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">{{ player }}</button>
+    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">{{ player }}</button>
   </p>
   <p>
-    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">7</button>
-    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">8</button>
-    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">9</button>
+    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">{{ player }}</button>
+    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">{{ player }}</button>
+    <button md-fab md-tooltip="Klicke um Spielstein zu setzen!" color="accent">{{ player }}</button>
   </p>
 </md-card>

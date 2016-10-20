@@ -6,11 +6,13 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
+import { SquareComponent } from './square/square.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BoardComponent
+    BoardComponent,
+    SquareComponent
   ],
   imports: [
     BrowserModule,
