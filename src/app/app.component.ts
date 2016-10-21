@@ -1,15 +1,7 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import { MdDialog, MdDialogConfig } from "@angular/material";
 
-@Component({
-  selector: 'settings-dialog',
-  template: `
-    <label>Settings currently not available!</label>
-  `
-})
-export class SettingsDialog {
-
-}
+import { SettingsComponent } from './settings/settings.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +16,6 @@ export class AppComponent {
   openDialog() {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.vcr;
-    this.dialog.open(SettingsDialog, config);
+    this.dialog.open(SettingsComponent, config);
   }
 }
