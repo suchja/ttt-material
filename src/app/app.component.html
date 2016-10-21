@@ -1,15 +1,13 @@
 <md-toolbar color="primary">
   <h2>TicTacToe mit Material 2</h2>
-  <button md-icon-button [md-menu-trigger-for]="menu">
-    <md-icon>more_vert</md-icon>
-  </button>
 </md-toolbar>
-  <md-menu x-position="before" #menu="mdMenu">
-    <button md-menu-item (click)="openDialog()">Settings</button>
-    <button md-menu-item>Help</button>
-  </md-menu>
+
 <div class="app-content">
 
   <app-board></app-board>
 
 </div>
+
+<span class="app-action" [class.m2app-dark]="isDarkTheme">
+  <button md-fab (click)="openDialog()" color="primary"><md-icon>settings</md-icon></button>
+</span>
