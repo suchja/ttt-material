@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { SquareComponent } from './square/square.component';
 import { SettingsComponent } from './settings/settings.component';
+import { PlayerSettingsComponent } from './player-settings/player-settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     SquareComponent,
-    SettingsComponent
+    SettingsComponent,
+    PlayerSettingsComponent
   ],
   entryComponents: [
     SettingsComponent,
