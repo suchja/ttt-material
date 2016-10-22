@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PlayerService } from '../player.service';
+import { Player } from '../shared/player';
+
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -8,7 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class BoardComponent{
   private board: string[][] = [["", "", ""], ["", "", ""], ["", "", ""]];
   private player: string = "x";
-  constructor() { }
+  private playerX: Player;
+  private playerO: Player;
+
+  constructor(playerService: PlayerService) { 
+    this.playerX = playerService.getPlayerX();
+    this.playerO = playerService.getPlayerO();
+  }
 
   private setToken(i: number, j: number) {
     if (!this.isWon() && !this.isDraw()) {

@@ -1,5 +1,9 @@
 <md-card>
   Current player: {{player}}
+  <br>
+  PlayerX.Name: {{ playerX.name }}
+  <br>
+  PlayerO.Name: {{ playerO.name }}
   <template [ngIf]="isWon()">
     Won!
   </template>

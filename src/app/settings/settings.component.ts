@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Player } from '../shared/player';
+import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-settings',
@@ -11,9 +12,9 @@ export class SettingsComponent {
   private playerX: Player;
   private playerO: Player;
 
-  constructor() {
-    this.playerX = new Player(0, "X");
-    this.playerO = new Player(1, "O");
+  constructor(playerService: PlayerService) {
+    this.playerX = playerService.getPlayerX();
+    this.playerO = playerService.getPlayerO();
   }
 
 }

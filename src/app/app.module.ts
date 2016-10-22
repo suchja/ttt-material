@@ -9,6 +9,7 @@ import { BoardComponent } from './board/board.component';
 import { SquareComponent } from './square/square.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PlayerSettingsComponent } from './player-settings/player-settings.component';
+import { PlayerService } from './player.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { PlayerSettingsComponent } from './player-settings/player-settings.compo
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [],
+  providers: [PlayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
