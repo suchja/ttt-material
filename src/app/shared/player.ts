@@ -10,10 +10,4 @@ export class Player {
         this.mode = 0;
         this.botMode = 0;
     }
-
-    public updateBotMode() {
-        if (this.mode === 1) {
-            this.botMode = this.botMode;
-        }
-    }
 }
