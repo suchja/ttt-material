@@ -1,8 +1,13 @@
 <md-card>
-  <h5>Player: {{ player.name }}</h5>
-  <md-input [(ngModel)]="player.name" placeholder="Player name"></md-input>
-  <md-radio-group [(ngModel)]="player.brain">
-    <md-radio-button value="0">Human</md-radio-button>
-    <md-radio-button value="1">Bot</md-radio-button>
-  </md-radio-group>
+  <md-card-title>Player: {{ player.name }}</md-card-title>
+  <p>
+    <md-input [(ngModel)]="player.name" placeholder="Player name"></md-input>
+  </p>
+  <p>
+    Mode:
+    <md-radio-group [(ngModel)]="player.brain">
+      <md-radio-button value="0">Human</md-radio-button>
+      <md-radio-button value="1">Bot</md-radio-button>
+    </md-radio-group>
+  </p>
 </md-card>
