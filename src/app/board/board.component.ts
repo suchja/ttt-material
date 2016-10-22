@@ -10,25 +10,26 @@ import { Player } from '../shared/player';
 })
 export class BoardComponent{
   private board: string[][] = [["", "", ""], ["", "", ""], ["", "", ""]];
-  private player: string = "x";
   private playerX: Player;
   private playerO: Player;
+  private currentPlayer: Player;
 
   constructor(playerService: PlayerService) { 
     this.playerX = playerService.getPlayerX();
     this.playerO = playerService.getPlayerO();
+    this.currentPlayer = this.playerX;
   }
 
   private setToken(i: number, j: number) {
     if (!this.isWon() && !this.isDraw()) {
       console.log("setToken: " + i + " " + j);
       if (this.board[i][j] === "") {
-        this.board[i][j] = this.player;
+        this.board[i][j] = this.currentPlayer.getSymbol();
         if (!this.isWon()) {
-          if (this.player === "x") {
-            this.player = "o";
+          if (this.currentPlayer === this.playerX) {
+            this.currentPlayer = this.playerO;
           } else {
-            this.player = "x";
+            this.currentPlayer = this.playerX;
           }
         }
       }
