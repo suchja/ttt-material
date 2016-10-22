@@ -1,11 +1,13 @@
 export class Player {
     private id: number;
     private name: string;
-    private brain: number;
+    private mode: number;
+    private botMode: number;
 
     constructor(id: number, name: string) {
         this.id = id;
         this.name = name;
-        this.brain = 0;
+        this.mode = 0;
+        this.botMode = 0;
     }
 }
