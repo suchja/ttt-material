@@ -10,12 +10,12 @@
       <md-radio-button value="1">Bot</md-radio-button>
     </md-radio-group>
   </p>
-  <p *ngIf="player.mode === 0">
-      Bot difficulty:
-      <md-radio-group [(ngModel)]="player.botMode">
-        <md-radio-button value="0">Easy</md-radio-button>
-        <md-radio-button value="1">Medium</md-radio-button>
-        <md-radio-button value="2">Hard</md-radio-button>
-      </md-radio-group>
+  <p>
+    Bot difficulty:
+    <md-radio-group [(ngModel)]="player.botMode">
+      <md-radio-button value="0">Easy</md-radio-button>
+      <md-radio-button value="1">Medium</md-radio-button>
+      <md-radio-button value="2">Hard</md-radio-button>
+    </md-radio-group>
   </p>
 </md-card>
