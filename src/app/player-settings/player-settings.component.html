@@ -1,6 +1,6 @@
-{{ name }}
 <md-card>
-  <md-radio-group [(value)]="mode">
+  <h5>Player: {{ player.name }}</h5>
+  <md-radio-group [(ngModel)]="player.brain">
     <md-radio-button value="0">Human</md-radio-button>
     <md-radio-button value="1">Bot</md-radio-button>
   </md-radio-group>
