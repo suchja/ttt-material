@@ -10,7 +10,7 @@
 </md-card>
 <md-card>
      <tr *ngFor="let row of game.board; let i = index">
-        <td *ngFor="let col of row; let j = index" (click)=setToken(i,j)>
+        <td *ngFor="let col of row; let j = index" (click)=game.setToken(i,j)>
             <!-- {{col}} -->
             <app-square [token]=col></app-square>
         </td>

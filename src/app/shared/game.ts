@@ -25,11 +25,15 @@ export class Game {
       this._currentPlayer = nextPlayer; 
   }
 
-  public togglePlayer() {
-    if (this._currentPlayer === this.playerX) {
-        this.currentPlayer = this.playerO;
-    } else {
-        this.currentPlayer = this.playerX;
+  public setToken(i: number, j: number) {
+    if (!this.isWon() && !this.isDraw()) {
+      console.log("setToken: " + i + " " + j);
+      if (this.board[i][j] === "") {
+        this.board[i][j] = this._currentPlayer.getSymbol();
+        if (!this.isWon()) {
+          this.togglePlayer();
+        }
+      }
     }
   }
 
@@ -61,6 +65,14 @@ export class Game {
       return true;
     } else {
       return false;
+    }
+  }
+
+  private togglePlayer() {
+    if (this._currentPlayer === this.playerX) {
+        this.currentPlayer = this.playerO;
+    } else {
+        this.currentPlayer = this.playerX;
     }
   }
 }

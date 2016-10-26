@@ -15,26 +15,4 @@ export class BoardComponent{
   constructor(playerService: PlayerService) { 
     this.game = new Game(playerService);
   }
-
-  private setToken(i: number, j: number) {
-    if (!this.game.isWon() && !this.game.isDraw()) {
-      console.log("setToken: " + i + " " + j);
-      if (this.game.board[i][j] === "") {
-        this.game.board[i][j] = this.game.currentPlayer.getSymbol();
-        if (!this.game.isWon()) {
-          this.game.togglePlayer();
-        }
-      }
-    }
-  }
-
-/*  private getGameState(): number {
-    if (this.isWon()) {
-      return 2;
-    }
-    if (this.isDraw()) {
-      return 1;
-    }
-    return 0;
-  }*/
 }
