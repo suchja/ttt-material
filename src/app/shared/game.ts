@@ -21,10 +21,6 @@ export class Game {
       return this._currentPlayer
   }
 
-  public set currentPlayer(nextPlayer: Player) {
-      this._currentPlayer = nextPlayer; 
-  }
-
   public setToken(i: number, j: number) {
     if (!this.isWon() && !this.isDraw()) {
       console.log("setToken: " + i + " " + j);
@@ -70,9 +66,9 @@ export class Game {
 
   private togglePlayer() {
     if (this._currentPlayer === this.playerX) {
-        this.currentPlayer = this.playerO;
+        this._currentPlayer = this.playerO;
     } else {
-        this.currentPlayer = this.playerX;
+        this._currentPlayer = this.playerX;
     }
   }
 }
