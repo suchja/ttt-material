@@ -25,6 +25,18 @@ export class Game {
       return this._currentPlayer
   }
 
+  public get opponentOfCurrentPlayer(): Player {
+    let opponent: Player;
+
+    if (this._currentPlayer === this.playerX) {
+        opponent = this.playerO;
+    } else {
+        opponent = this.playerX;
+    }
+
+    return opponent;
+  }
+
   public get currentPlayerObserver(): BehaviorSubject<Player> {
       return this._currentPlayerObserver;
   }
@@ -77,12 +89,7 @@ export class Game {
   }
 
   private togglePlayer() {
-    if (this._currentPlayer === this.playerX) {
-        this._currentPlayer = this.playerO;
-    } else {
-        this._currentPlayer = this.playerX;
-    }
-
+    this._currentPlayer = this.opponentOfCurrentPlayer;
     this._currentPlayerObserver.next(this._currentPlayer);
   }
 }
