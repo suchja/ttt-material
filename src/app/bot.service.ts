@@ -8,7 +8,7 @@ export class BotService {
 
         this.game.currentPlayerObserver.subscribe({
             next: n => {
-                if (this.game.currentPlayer.isPlayedByBot()) {
+                if (n.isPlayedByBot()) {
                     this.makeMove();
                 }
             },
@@ -29,7 +29,7 @@ export class BotService {
     }
 
     private tryPlay(x: number, y: number): boolean {
-        if (this.game.board[x][y] === "") {
+        if (this.game.isSquareEmpty(x, y)) {
             this.game.setToken(x, y);
             return true;
         } else {
