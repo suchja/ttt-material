@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PlayerService } from '../player.service';
+import { GameService } from '../game.service';
 import { Player } from '../shared/player';
 import { Game } from '../shared/game';
 
@@ -12,7 +12,7 @@ import { Game } from '../shared/game';
 export class BoardComponent{
   private game: Game;
 
-  constructor(playerService: PlayerService) { 
-    this.game = new Game(playerService);
+  constructor(gameService: GameService) { 
+    this.game = gameService.game;
   }
 }

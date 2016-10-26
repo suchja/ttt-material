@@ -10,6 +10,7 @@ import { SquareComponent } from './square/square.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PlayerSettingsComponent } from './player-settings/player-settings.component';
 import { PlayerService } from './player.service';
+import { GameService } from './game.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import { PlayerService } from './player.service';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [PlayerService],
+  providers: [
+    GameService,
+    PlayerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
