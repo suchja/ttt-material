@@ -17,49 +17,18 @@ export class BoardComponent{
   }
 
   private setToken(i: number, j: number) {
-    if (!this.isWon() && !this.isDraw()) {
+    if (!this.game.isWon() && !this.game.isDraw()) {
       console.log("setToken: " + i + " " + j);
       if (this.game.board[i][j] === "") {
         this.game.board[i][j] = this.game.currentPlayer.getSymbol();
-        if (!this.isWon()) {
+        if (!this.game.isWon()) {
           this.game.togglePlayer();
         }
       }
     }
   }
 
-  private isDraw(): boolean {
-    if (this.isWon()) {
-      return false;
-    }
-    for (let i = 0; i < this.game.board.length; i++) {
-      for (let j = 0; j < this.game.board.length; j++) {
-        if (this.game.board[i][j] === "") {
-          return false;
-        }
-      }
-    }
-    return true;
-  }
-
-  private isWon(): boolean {
-    if (
-      (this.game.board[0][0] !== "" && this.game.board[0][0] === this.game.board[0][1] && this.game.board[0][0] === this.game.board[0][2])
-      || (this.game.board[1][0] !== "" && this.game.board[1][0] === this.game.board[1][1] && this.game.board[1][0] === this.game.board[1][2])
-      || (this.game.board[2][0] !== "" && this.game.board[2][0] === this.game.board[2][1] && this.game.board[2][0] === this.game.board[2][2])
-      || (this.game.board[0][0] !== "" && this.game.board[0][0] === this.game.board[1][0] && this.game.board[0][0] === this.game.board[2][0])
-      || (this.game.board[0][1] !== "" && this.game.board[0][1] === this.game.board[1][1] && this.game.board[0][1] === this.game.board[2][1])
-      || (this.game.board[0][2] !== "" && this.game.board[0][2] === this.game.board[1][2] && this.game.board[0][2] === this.game.board[2][2])
-      || (this.game.board[0][0] !== "" && this.game.board[0][0] === this.game.board[1][1] && this.game.board[0][0] === this.game.board[2][2])
-      || (this.game.board[2][0] !== "" && this.game.board[2][0] === this.game.board[1][1] && this.game.board[2][0] === this.game.board[0][2])
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  private getGameState(): number {
+/*  private getGameState(): number {
     if (this.isWon()) {
       return 2;
     }
@@ -67,5 +36,5 @@ export class BoardComponent{
       return 1;
     }
     return 0;
-  }
+  }*/
 }

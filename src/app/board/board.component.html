@@ -1,10 +1,10 @@
 <md-card>
   Current player: {{ game.currentPlayer.name }}
-  <template [ngIf]="isWon()">
+  <template [ngIf]="game.isWon()">
     Won!
   </template>
   <br>
-  <template [ngIf]="isDraw()">
+  <template [ngIf]="game.isDraw()">
     Draw!
   </template>
 </md-card>
