@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { PlayerService } from '../player.service';
 import { Player } from '../shared/player';
+import { Game } from '../shared/game';
 
 @Component({
   selector: 'app-board',
@@ -9,7 +10,7 @@ import { Player } from '../shared/player';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent{
-  private board: string[][] = [["", "", ""], ["", "", ""], ["", "", ""]];
+  private game: Game = new Game();
   private playerX: Player;
   private playerO: Player;
   private currentPlayer: Player;
@@ -23,8 +24,8 @@ export class BoardComponent{
   private setToken(i: number, j: number) {
     if (!this.isWon() && !this.isDraw()) {
       console.log("setToken: " + i + " " + j);
-      if (this.board[i][j] === "") {
-        this.board[i][j] = this.currentPlayer.getSymbol();
+      if (this.game.board[i][j] === "") {
+        this.game.board[i][j] = this.currentPlayer.getSymbol();
         if (!this.isWon()) {
           if (this.currentPlayer === this.playerX) {
             this.currentPlayer = this.playerO;
@@ -40,9 +41,9 @@ export class BoardComponent{
     if (this.isWon()) {
       return false;
     }
-    for (let i = 0; i < this.board.length; i++) {
-      for (let j = 0; j < this.board.length; j++) {
-        if (this.board[i][j] === "") {
+    for (let i = 0; i < this.game.board.length; i++) {
+      for (let j = 0; j < this.game.board.length; j++) {
+        if (this.game.board[i][j] === "") {
           return false;
         }
       }
@@ -52,14 +53,14 @@ export class BoardComponent{
 
   private isWon(): boolean {
     if (
-      (this.board[0][0] !== "" && this.board[0][0] === this.board[0][1] && this.board[0][0] === this.board[0][2])
-      || (this.board[1][0] !== "" && this.board[1][0] === this.board[1][1] && this.board[1][0] === this.board[1][2])
-      || (this.board[2][0] !== "" && this.board[2][0] === this.board[2][1] && this.board[2][0] === this.board[2][2])
-      || (this.board[0][0] !== "" && this.board[0][0] === this.board[1][0] && this.board[0][0] === this.board[2][0])
-      || (this.board[0][1] !== "" && this.board[0][1] === this.board[1][1] && this.board[0][1] === this.board[2][1])
-      || (this.board[0][2] !== "" && this.board[0][2] === this.board[1][2] && this.board[0][2] === this.board[2][2])
-      || (this.board[0][0] !== "" && this.board[0][0] === this.board[1][1] && this.board[0][0] === this.board[2][2])
-      || (this.board[2][0] !== "" && this.board[2][0] === this.board[1][1] && this.board[2][0] === this.board[0][2])
+      (this.game.board[0][0] !== "" && this.game.board[0][0] === this.game.board[0][1] && this.game.board[0][0] === this.game.board[0][2])
+      || (this.game.board[1][0] !== "" && this.game.board[1][0] === this.game.board[1][1] && this.game.board[1][0] === this.game.board[1][2])
+      || (this.game.board[2][0] !== "" && this.game.board[2][0] === this.game.board[2][1] && this.game.board[2][0] === this.game.board[2][2])
+      || (this.game.board[0][0] !== "" && this.game.board[0][0] === this.game.board[1][0] && this.game.board[0][0] === this.game.board[2][0])
+      || (this.game.board[0][1] !== "" && this.game.board[0][1] === this.game.board[1][1] && this.game.board[0][1] === this.game.board[2][1])
+      || (this.game.board[0][2] !== "" && this.game.board[0][2] === this.game.board[1][2] && this.game.board[0][2] === this.game.board[2][2])
+      || (this.game.board[0][0] !== "" && this.game.board[0][0] === this.game.board[1][1] && this.game.board[0][0] === this.game.board[2][2])
+      || (this.game.board[2][0] !== "" && this.game.board[2][0] === this.game.board[1][1] && this.game.board[2][0] === this.game.board[0][2])
     ) {
       return true;
     } else {
