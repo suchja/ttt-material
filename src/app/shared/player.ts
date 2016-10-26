@@ -16,4 +16,8 @@ export class Player {
     public getSymbol(): string {
         return this.symbol;
     }
+
+    public isPlayedByBot(): boolean {
+        return this.mode == 1;
+    }
 }

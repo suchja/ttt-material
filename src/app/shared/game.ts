@@ -1,9 +1,12 @@
+import { BehaviorSubject } from "rxjs/Rx";
+
 import { Player } from './player';
 import { PlayerService } from '../player.service';
 
 export class Game {
   private _board: string[][] = [["", "", ""], ["", "", ""], ["", "", ""]];
   private _currentPlayer: Player;
+  private _currentPlayerObserver: BehaviorSubject<Player>;
   private playerX: Player;
   private playerO: Player;
 
@@ -11,6 +14,7 @@ export class Game {
     this.playerX = playerService.getPlayerX();
     this.playerO = playerService.getPlayerO();
     this._currentPlayer = this.playerX;
+    this._currentPlayerObserver = new BehaviorSubject<Player>(this._currentPlayer);
   }
 
   get board(): string[][] {
@@ -21,6 +25,10 @@ export class Game {
       return this._currentPlayer
   }
 
+  public get currentPlayerObserver(): BehaviorSubject<Player> {
+      return this._currentPlayerObserver;
+  }
+  
   public setToken(i: number, j: number) {
     if (!this.isWon() && !this.isDraw()) {
       console.log("setToken: " + i + " " + j);
@@ -70,5 +78,7 @@ export class Game {
     } else {
         this._currentPlayer = this.playerX;
     }
+
+    this._currentPlayerObserver.next(this._currentPlayer);
   }
 }
